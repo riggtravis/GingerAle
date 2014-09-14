@@ -1,0 +1,35 @@
+<h1>Listing ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numeric rating</th>
+      <th>Comments</th>
+      <th>Date</th>
+      <th>User</th>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.numeric_rating %></td>
+        <td><%= rating.comments %></td>
+        <td><%= rating.date %></td>
+        <td><%= rating.user_id %></td>
+        <td><%= rating.group_id %></td>
+        <td><%= link_to 'Show', rating %></td>
+        <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
+        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rating', new_rating_path %>

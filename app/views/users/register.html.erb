@@ -1,0 +1,16 @@
+<!-- Use the twitter bootstrap form helper to create a form. -->
+<%= bootstrap_form_for(@user) do |form| %>
+  <%= form.username_field :username %>
+  <%= form.password_field :password %>
+  <%= form.password_confirm_field :password_confirm %>
+  
+  <!-- Capture the contact information here too. -->
+  <%= form.email_field :email %>
+  <%= form.phone_field :phone_number %>
+  <%= form.text_field :street_address %>
+  <%= form.number_field :aptpo %>
+  <%= form.text_field :city %>
+  <%= form.text_field :state %>
+  <%= form.number_field :zip %>
+  <%= form.submit "Sign Up" %>
+<% end %>
