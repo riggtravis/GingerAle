@@ -1,0 +1,4 @@
+<%= bootstrap_form_for([@group, @rosters]) do |f| %>
+  <%= f.select :user_id, Users.all %>
+  <%= f.select :group_id, Groups.all %>
+<% end %>
