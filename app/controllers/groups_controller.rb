@@ -10,6 +10,15 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @group = @user.find(params[:id])
+    else 
+      if params[:course_id].present?
+        @course = Course.find(params[:course_id])
+        @group = @course.groups.find(params[:id])
+      end
+    end
   end
 
   # GET /groups/new

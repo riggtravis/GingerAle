@@ -1,7 +1,10 @@
 <%= bootstrap_form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <h2>
+        <%= pluralize(@group.errors.count, "error") %>
+        prohibited this group from being saved:
+      </h2>
 
       <ul>
       <% @group.errors.full_messages.each do |msg| %>
@@ -13,11 +16,11 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.select :user_id, Users.all %>
   </div>
   <div class="field">
     <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
+    <%= f.select :course_id, Courses.all %>
   </div>
   <div class="actions">
     <%= f.submit %>

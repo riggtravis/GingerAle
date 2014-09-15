@@ -10,6 +10,15 @@ class RatingsController < ApplicationController
   # GET /ratings/1
   # GET /ratings/1.json
   def show
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @rating = @user.ratings.find(params[:id])
+    else
+      if params[:group_id].present?
+        @group = Group.find(params[:group_id])
+        @rating = @group.ratings.find(params[:id])
+      end
+    end
   end
 
   # GET /ratings/new

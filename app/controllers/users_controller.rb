@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if params[:group_id].present?
+      @group = Group.find(params[:group_id])
+      @user = @group.users.find(params[:id])
+    end
   end
 
   # GET /users/new

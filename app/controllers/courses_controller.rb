@@ -10,6 +10,10 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @course = @user.courses.find(params[:id])
+    end
   end
 
   # GET /courses/new
