@@ -1,3 +1,5 @@
+# This file contains all of the packages that will be needed by the project.
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
