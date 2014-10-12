@@ -8,4 +8,4 @@ My name is Travis Rigg. You can reach me by calling 1-540-267-5874. My email add
 Before installing Ginger Ale, please make sure that your system already is running Ruby.
 
 ## Installation
-Clone the git repository at github.com/riggtravis/GingerAle. Next run the bundler install command. Now all that's left is to set up your server using the commands specific to your system (more complete installation instructions will come later.)
+Clone the git repository at github.com/riggtravis/GingerAle. Next run the bundler install command. Next, perform the rake migrate command. Now all that's left is to set up your server using the commands specific to your system (more complete installation instructions will come later.)
