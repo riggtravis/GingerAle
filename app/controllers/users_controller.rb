@@ -1,12 +1,18 @@
+# Public: This file contains all of the functions that can be
+#   used to access and modify the users table.
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # Public: Display all entries in the users table.
   # GET /users
   # GET /users.json
   def index
     @users = User.all
   end
 
+  # Public: Display the information for single entry in the users
+  #   table.
   # GET /users/1
   # GET /users/1.json
   def show
@@ -15,16 +21,19 @@ class UsersController < ApplicationController
       @user = @group.users.find(params[:id])
     end
   end
-
+  
+  # Public: Instantiate a single new user object.
   # GET /users/new
   def new
     @user = User.new
   end
 
+  # Public: Make changes to a user object.
   # GET /users/1/edit
   def edit
   end
 
+  # Public: Instantiate a new user object and add it to the database.
   # POST /users
   # POST /users.json
   def create
@@ -41,6 +50,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # Public: Save all changes made to the database.
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -55,6 +65,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # PubliC: Remove the information for a user entry from the database.
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -66,11 +77,13 @@ class UsersController < ApplicationController
   end
 
   private
+    # Internal: Create a user variable to be used by the other functions.
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
+    # Internal: enforce data access sanity.
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :password, :firstname, :lastname, :email, :phone, :street, :aptpo, :city, :state, :zip)
