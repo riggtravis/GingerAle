@@ -1,12 +1,14 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
+  # Public: List all rating entries.
   # GET /ratings
   # GET /ratings.json
   def index
     @ratings = Rating.all
   end
 
+  # Public: Show the information for a single rating entry.
   # GET /ratings/1
   # GET /ratings/1.json
   def show
@@ -21,15 +23,18 @@ class RatingsController < ApplicationController
     end
   end
 
+  # Public: Instantiate a new rating object.
   # GET /ratings/new
   def new
     @rating = Rating.new
   end
 
+  # Public: Make changes to an existing rating object.
   # GET /ratings/1/edit
   def edit
   end
 
+  # Public: Instantiate a new rating object and add it to the database.
   # POST /ratings
   # POST /ratings.json
   def create
@@ -46,6 +51,7 @@ class RatingsController < ApplicationController
     end
   end
 
+  # Public: Save all changes made to the database.
   # PATCH/PUT /ratings/1
   # PATCH/PUT /ratings/1.json
   def update
@@ -60,6 +66,7 @@ class RatingsController < ApplicationController
     end
   end
 
+  # Public: Remove a single rating object from the database.
   # DELETE /ratings/1
   # DELETE /ratings/1.json
   def destroy
@@ -71,11 +78,13 @@ class RatingsController < ApplicationController
   end
 
   private
+    # Internal: Create a rating variable to be used by other functions.
     # Use callbacks to share common setup or constraints between actions.
     def set_rating
       @rating = Rating.find(params[:id])
     end
 
+    # Internal: Enforce data access sanity.
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
       params.require(:rating).permit(:numeric_rating, :comments, :date, :user_id, :group_id)
